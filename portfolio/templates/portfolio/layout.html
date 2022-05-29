@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+
+      <nav class="menu">
+          <a>Diogo Silva</a>
+          <a href="{% url 'portfolio:home' %}">home</a>
+          <a href="{% url 'portfolio:licenciatura' %}">licenciatura</a>
+          <a href="{% url 'portfolio:blog' %}">blog</a>
+          <a href="{% url 'portfolio:quizz' %}">quizz</a>
+      </nav>
+
+  </header>
+
+  <main>
+      {% block main %}
+      {% endblock main %}
+  </main>
+  <article>
+      {% block article %}
+      {% endblock %}
+  </article>
+  <footer>
+      <div>ULHT, 2022</div>
+  </footer>
+</body>
+
+</html>

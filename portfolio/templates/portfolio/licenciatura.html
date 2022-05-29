@@ -1,0 +1,38 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <h3>Licenciatura</h3>
+    <p>O curso de licenciatura em Engenharia Informática da Universidade Lusófona forma licenciados capazes de assumir
+        posições de destaque em projetos de engenharia informática ou equipas de desenvolvimento e consultadoria, na
+        área da engenharia dos sistemas de informação, assumindo pela sua formação e atitude papéis relevantes na
+        geração de inovação e riqueza. Nesse sentido, os estudantes obtêm as competências adequadas à conceção,
+        realização e manutenção de sistemas informáticos, programação de aplicações e de sistemas, desenho arquiteturas
+        de computação e comunicações, gestão de sistemas de informação e de conhecimento, assim como à compreensão e
+        resolução dos problemas associados.
+    </p>
+{% endblock %}
+
+{% block article %}
+    <h3>Cadeiras</h3>
+    <table class = "info_table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ano</th>
+                <th>Semestre</th>
+                <th>ECTS</th>
+                <th>Ranking</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> nome da cadeira </td>
+                <td> ano </td>
+                <td> semestre </td>
+                <td> ects </td>
+                <td> ranking </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
