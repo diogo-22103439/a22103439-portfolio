@@ -22,17 +22,17 @@
                 <th>Ano</th>
                 <th>Semestre</th>
                 <th>ECTS</th>
-                <th>Ranking</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td> nome da cadeira </td>
-                <td> ano </td>
-                <td> semestre </td>
-                <td> ects </td>
-                <td> ranking </td>
-            </tr>
+            {% for cadeira in cadeiras %}
+                <tr>
+                    <td> {{cadeira.nome}} </td>
+                    <td> {{cadeira.ano}} </td>
+                    <td> {{cadeira.semetre}} </td>
+                    <td> {{cadeira.ects}} </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

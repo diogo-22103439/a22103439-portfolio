@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <h3>LOGIN</h3>
+
+    {% if request.user.is_authenticated %}
+        <p>LOGIN FEITO!!</p>
+        <p>USER : {{user.get_username}}</p>
+        <a href="{% url 'portfolio:logout' %}"> <button> logout </button>  </a>
+    {% else %}
+
+    <form action= "login", method = "POST">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,9 +1,29 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import render, redirect
 import datetime
 from matplotlib import pyplot as plt
 
 from .models import *
 from .forms import *
+
+def login_page(request):
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username = username, password = password)
+        if user is not None:
+            login(request,user)
+            return redirect("/")
+
+    return redirect("/login_page")
+
+def logout_page(request):
+    logout(request)
+    return redirect("/login_page")
+
+
+def login_page_view(request):
+    return render(request, "portfolio/login.html")
 
 
 def home_page_view(request):
@@ -15,7 +35,10 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    context = {
+        'cadeiras':Cadeira.objects.all()
+    }
+    return render(request, 'portfolio/licenciatura.html', context)
 
 
 def blog_page_view(request):
@@ -34,13 +57,13 @@ def blog_page_view(request):
 def pontuacao_quizz(request):
     pontos = 0
 
-    if request.POST['pergunta1'] == 'respostaCerta':
+    if request.POST['pergunta1'] == 'op2':
         pontos += 25
-    if request.POST['pergunta2'] == 'respostaCerta':
+    if request.POST['pergunta2'] == 'op3':
         pontos += 25
-    if request.POST['pergunta3'] == 'respostaCerta':
+    if request.POST['pergunta3'] == 'op3':
         pontos += 25
-    if request.POST['pergunta4'] == 'respostaCerta':
+    if request.POST['pergunta4'] == 'op1':
         pontos += 25
 
     return pontos
@@ -63,3 +86,9 @@ def quizz_page_view(request):
         desenha_grafico_pontos()
 
     return render(request, 'portfolio/quizz.html')
+
+def projetos_page_view(request):
+    context = {
+        'projetos':Projeto.objects.all()
+    }
+    return render(request, 'portfolio/projetos.html', context)

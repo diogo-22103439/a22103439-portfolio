@@ -2,5 +2,18 @@
 
 {% block main %}
 	<h3>Projetos</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    <div class="container">
+        {% for projeto in projetos %}
+            <div class="col-sm-3 d-inline-block">
+                <div class="card text-dark mb-3">
+                    <div>
+                        <h5 class="card-title">{{ projeto.titulo }}</h5>
+                        <p class = "imagem_projeto"> <img src="{{ projeto.imagem.url }}" alt="image"/> </p>
+                        <p class="card-descricao"><small class="text-muted">{{ projeto.descricao }}</small></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}

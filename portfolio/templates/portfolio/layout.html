@@ -13,11 +13,12 @@
   <header>
 
       <nav class="menu">
-          <a>Diogo Silva</a>
+          <a href="{% url 'portfolio:login_page' %}">login</a>
           <a href="{% url 'portfolio:home' %}">home</a>
           <a href="{% url 'portfolio:licenciatura' %}">licenciatura</a>
           <a href="{% url 'portfolio:blog' %}">blog</a>
           <a href="{% url 'portfolio:quizz' %}">quizz</a>
+          <a href="{% url 'portfolio:projetos' %}">projetos</a>
       </nav>
 
   </header>
@@ -26,13 +27,16 @@
       {% block main %}
       {% endblock main %}
   </main>
+
   <article>
       {% block article %}
       {% endblock %}
   </article>
+
   <footer>
       <div>ULHT, 2022</div>
   </footer>
+
 </body>
 
 </html>
