@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Cadeira(models.Model):
-   nome = models.CharField(max_length=30)
+   nome = models.CharField(max_length=30, unique=True)
    ano = models.IntegerField()
    semetre = models.IntegerField()
    ects = models.IntegerField()

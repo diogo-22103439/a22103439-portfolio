@@ -35,9 +35,15 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
+    form = PostFormLicenciatura(request.POST or None)
+    if form.is_valid():
+        form.save()
+
     context = {
-        'cadeiras':Cadeira.objects.all()
+        'cadeiras': Cadeira.objects.all(),
+        'form': form
     }
+
     return render(request, 'portfolio/licenciatura.html', context)
 
 
@@ -88,7 +94,13 @@ def quizz_page_view(request):
     return render(request, 'portfolio/quizz.html')
 
 def projetos_page_view(request):
+
+    form = PostFormProject(request.POST or None)
+    if form.is_valid():
+        form.save()
+
     context = {
-        'projetos':Projeto.objects.all()
+        'projetos':Projeto.objects.all(),
+        'form': form
     }
     return render(request, 'portfolio/projetos.html', context)

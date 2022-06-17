@@ -2,157 +2,169 @@
 {% load static %}
 
 {% block main %}
-    <h3>Acha que tem capacidades de programação web?</h3>
-    <p>Responda a um pequeno quizz que se segue e teste as suas capacidades de programação web!<br>Eis as pontuações
-        atuais:</p>
-    <img src="{% static 'portfolio/images/resultados.png' %}" alt="">
+
+    <link rel="stylesheet" href="{% static 'portfolio/css/background.css' %}">
+
+    <div>
+        <h2>Acha que tem capacidades de programação web?</h2>
+        <div>Responda a um pequeno quizz que se segue e teste as suas capacidades de programação web!<br>Eis as pontuações
+        atuais:</div>
+        <div><img src="{% static 'portfolio/images/resultados.png' %}" alt=""></div>
+    </div>
+
+
+
+
+    <div>
+        <h2>Quizz</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label for="quizz_nome">Coloque o seu nome!</label>
+                    <input class="form-control" type="text" placeholder="O meu nome é..." name="nome" id="quizz_nome" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Q1. O que significa a sigla HTML?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta1" value="op1" id="pergunta1_1">
+                                <label class="form-check-label" for="pergunta1_1">
+                                    Hypertext Medium Language
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta1" value="op2" id="pergunta1_2">
+                                <label class="form-check-label" for="pergunta1_2">
+                                    Hypertext Markup Language
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta1" value="op3" id="pergunta1_3">
+                                <label class="form-check-label" for="pergunta1_3">
+                                    Hypertext Markup Lingo
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta1" value="op4" id="pergunta1_4">
+                                <label class="form-check-label" for="pergunta1_4">
+                                    Hypertext Minimum Language
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Q2. Que extensão devem ter os ficheiros HTML?</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta2" value="op1" id="pergunta2_1">
+                            <label class="form-check-label" for="pergunta2_1">
+                                .html
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta2" value="op2" id="pergunta2_2">
+                            <label class="form-check-label" for="pergunta2_2">
+                                .htm
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta2" value="op3" id="pergunta2_3">
+                            <label class="form-check-label" for="pergunta2_3">
+                                .webpage
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta2" value="op4" id="pergunta2_4">
+                            <label class="form-check-label" for="pergunta2_4">
+                                .index
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Q3. Qual é a forma correta de imprimir "Hello World" em Python?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta3" value="op1" id="pergunta3_1">
+                                <label class="form-check-label" for="pergunta3_1">
+                                    p("Hello World")
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta3" value="op2" id="pergunta3_2">
+                                <label class="form-check-label" for="pergunta3_2">
+                                    echo "Hello World"
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta3" value="op3" id="pergunta3_3">
+                                <label class="form-check-label" for="pergunta3_3">
+                                    print("Hello World")
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pergunta3" value="op4" id="pergunta3_4">
+                                <label class="form-check-label" for="pergunta3_4">
+                                    echo("Hello World");
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Q4. Qual é a forma correta de fazer um comentário em Python?</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta4" value="op1" id="pergunta4_1">
+                            <label class="form-check-label" for="pergunta4_1">
+                                // Um comentário
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta4" value="op2" id="pergunta4_2">
+                            <label class="form-check-label" for="pergunta4_2">
+                                /* Um comentário */
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta4" value="op3" id="pergunta4_3">
+                            <label class="form-check-label" for="pergunta4_3">
+                                # Um comentário
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta4" value="op4" id="pergunta4_4">
+                            <label class="form-check-label" for="pergunta4_4">
+                                ** Um comentário **
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-groupBtt">
+                <a href="{% url 'portfolio:home' %}" role="button" class="btn btn-warning">
+                    <input type="button" value="Cancelar">
+                </a>
+                <input class="btn btn-success" type="submit" value="Submeter">
+            </div>
+        </form>
+    </div>
+
 {% endblock %}
 
 {% block article %}
-    <h3>Quizz</h3>
-    <form action="" method="POST" style="width: 80%;">
-        {% csrf_token %}
-        <div class="form-group row">
-            <div class="col-md-12">
-                <label for="quizz_nome">Coloque o seu nome!</label>
-                <input class="form-control" type="text" placeholder="O meu nome é..." name="nome" id="quizz_nome"
-                       required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Q1. O que significa a sigla HTML?</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta1" value="op1" id="pergunta1_1">
-                            <label class="form-check-label" for="pergunta1_1">
-                                Hypertext Medium Language
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta1" value="op2" id="pergunta1_2">
-                            <label class="form-check-label" for="pergunta1_2">
-                                Hypertext Markup Language
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta1" value="op3" id="pergunta1_3">
-                            <label class="form-check-label" for="pergunta1_3">
-                                Hypertext Markup Lingo
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta1" value="op4" id="pergunta1_4">
-                            <label class="form-check-label" for="pergunta1_4">
-                                Hypertext Minimum Language
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-        <div class="form-group">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Q2. Que extensão devem ter os ficheiros HTML?</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta2" value="op1" id="pergunta2_1">
-                        <label class="form-check-label" for="pergunta2_1">
-                            .html
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta2" value="op2" id="pergunta2_2">
-                        <label class="form-check-label" for="pergunta2_2">
-                            .htm
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta2" value="op3" id="pergunta2_3">
-                        <label class="form-check-label" for="pergunta2_3">
-                            .webpage
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta2" value="op4" id="pergunta2_4">
-                        <label class="form-check-label" for="pergunta2_4">
-                            .index
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Q3. Qual é a forma correta de imprimir "Hello World" em Python?</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta3" value="op1" id="pergunta3_1">
-                            <label class="form-check-label" for="pergunta3_1">
-                                p("Hello World")
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta3" value="op2" id="pergunta3_2">
-                            <label class="form-check-label" for="pergunta3_2">
-                                echo "Hello World"
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta3" value="op3" id="pergunta3_3">
-                            <label class="form-check-label" for="pergunta3_3">
-                                print("Hello World")
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta3" value="op4" id="pergunta3_4">
-                            <label class="form-check-label" for="pergunta3_4">
-                                echo("Hello World");
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Q4. Qual é a forma correta de fazer um comentário em Python?</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta4" value="op1" id="pergunta4_1">
-                        <label class="form-check-label" for="pergunta4_1">
-                            // Um comentário
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta4" value="op2" id="pergunta4_2">
-                        <label class="form-check-label" for="pergunta4_2">
-                            /* Um comentário */
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta4" value="op3" id="pergunta4_3">
-                        <label class="form-check-label" for="pergunta4_3">
-                            # Um comentário
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pergunta4" value="op4" id="pergunta4_4">
-                        <label class="form-check-label" for="pergunta4_4">
-                            ** Um comentário **
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <a href="{% url 'portfolio:home' %}" role="button" class="btn btn-warning">
-                <input type="button" value="Cancelar">
-            </a>
-            <input class="btn btn-success" type="submit" value="Submeter">
-        </div>
-    </form>
 {% endblock %}

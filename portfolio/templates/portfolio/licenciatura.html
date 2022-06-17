@@ -2,37 +2,68 @@
 {% load static %}
 
 {% block main %}
-    <h3>Licenciatura</h3>
-    <p>O curso de licenciatura em Engenharia Informática da Universidade Lusófona forma licenciados capazes de assumir
+    <link rel="stylesheet" href="{% static 'portfolio/css/background.css' %}">
+
+    <div>
+        <h2>Licenciatura</h2>
+        <div>O curso de licenciatura em Engenharia Informática da Universidade Lusófona forma licenciados capazes de assumir
         posições de destaque em projetos de engenharia informática ou equipas de desenvolvimento e consultadoria, na
         área da engenharia dos sistemas de informação, assumindo pela sua formação e atitude papéis relevantes na
         geração de inovação e riqueza. Nesse sentido, os estudantes obtêm as competências adequadas à conceção,
         realização e manutenção de sistemas informáticos, programação de aplicações e de sistemas, desenho arquiteturas
         de computação e comunicações, gestão de sistemas de informação e de conhecimento, assim como à compreensão e
         resolução dos problemas associados.
-    </p>
+        </div>
+    </div>
+
+    <div>
+         <h2>Cadeiras</h2>
+                <table class = "info_table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Ano</th>
+                        <th>Semestre</th>
+                        <th>ECTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cadeira in cadeiras %}
+                        <tr>
+                            <td> {{cadeira.nome}} </td>
+                            <td> {{cadeira.ano}} </td>
+                            <td> {{cadeira.semetre}} </td>
+                            <td> {{cadeira.ects}} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+    </div>
+
+    <div>
+        {% if request.user.is_authenticated %}
+            <div>
+                <h2>Nova Cadeira</h2>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="form-groupBtt">
+                        <a href="{% url 'portfolio:home' %}" role="button" class="btn btn-warning">
+                            <input type="button" value="Cancelar">
+                        </a>
+                            <input class="btn btn-success" type="submit" value="Gravar">
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+
+
+
 {% endblock %}
 
 {% block article %}
-    <h3>Cadeiras</h3>
-    <table class = "info_table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Ano</th>
-                <th>Semestre</th>
-                <th>ECTS</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cadeira in cadeiras %}
-                <tr>
-                    <td> {{cadeira.nome}} </td>
-                    <td> {{cadeira.ano}} </td>
-                    <td> {{cadeira.semetre}} </td>
-                    <td> {{cadeira.ects}} </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
 {% endblock %}
